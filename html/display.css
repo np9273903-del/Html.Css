@@ -1,0 +1,18 @@
+.Name{
+    display:block;
+    margin-bottom:10px;
+
+}
+.Email{
+    display:block;
+}
+.display{
+    border:2px solid black;
+    display:Inline-block;
+    width:200px;
+    vertical-align:center;
+}
+.yes{
+    
+
+}

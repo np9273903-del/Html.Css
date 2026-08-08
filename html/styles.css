@@ -1,0 +1,23 @@
+.box{
+  height:110px;
+  width:300px;
+  background-color:black;
+  color:white;
+  text-align:center;
+  margin:0px;
+  padding:0px;
+  font-family:cardo;
+}
+
+.model{
+ padding-top:10px;
+ font-size:30px;
+}
+.order{
+ font-size:19px;
+}
+
+.clear{
+  text-decoration:underline;
+  cursor:pointer;
+}

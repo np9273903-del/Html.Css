@@ -1,0 +1,44 @@
+
+
+
+.ride{
+    font-style:arial;
+    font-size:30px;
+    margin-bottom:-20px;
+    padding:0px;
+  
+}
+
+.pickup{
+    padding:8px 8px 8px 8px;
+    background-color: silver;
+    border:none;
+    color:rgb(66, 66, 66);
+    padding-left:10px;
+    font-size:12px;
+    margin-bottom:-12px;
+}
+
+.destination{
+    padding:8px 8px 8px 8px;
+    background-color: silver;
+    border:none;
+    color:rgb(66, 66, 66);
+    padding-left:10px;
+    font-size:12px;
+}
+.Request{
+    background-color: black;
+    color:white;
+    padding:8px 8px 8px 8px;
+    border:none;
+
+}
+
+.Schedule{
+    margin-left:14px;
+    padding:10px 10px 8px 8px;
+    border:none;
+
+
+}

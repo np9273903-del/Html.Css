@@ -1,0 +1,93 @@
+.square{
+   height:200px;
+   width:200px;
+   background-color: red;
+}
+
+.green{
+    height:100px;
+    width:100px;
+  
+    background-color: green;
+    border-radius:50px;
+}
+
+.satisfied{
+    padding-left:10px;
+    padding-top:10px;
+    font-family:Arial;
+    height:70px;
+    width:300px;
+    border:1px solid rgba(0,0,0,0.5);
+    font-size:15px;
+
+}
+.youtube{
+    background-color: black;
+    color:white;
+
+     padding-left:5px;
+    padding-top:5px;
+    font-family:Arial;
+    height:70px;
+    width:300px;
+    border:1px solid rgba(0,0,0,0.5);
+    font-size:12px;
+    font-size:12px;
+
+}
+.install{
+   font-weight:bold;
+
+}
+.card{
+    box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    display:inline-block;
+    padding-bottom:0px;
+    padding:0px;
+    margin:0px;
+    margin-right:10px;
+}
+.catcard{
+   height:150px;
+   width:150px;
+   object-fit:cover;
+   font-family:arial;
+}
+
+.oliver{
+    padding:0px;
+    margin:0px;
+    font-weight:bold;
+    font-size:17px;
+    margin-left:3px;
+    margin-bottom:2px;
+
+}
+
+.mutual{
+    margin:0px;
+    color:rgb(102, 102, 102);
+   margin-left:3px;
+   margin-bottom:5px;
+    font-size:14px;
+
+}
+
+.add{
+    background-color: rgb(47, 115, 242);
+    margin-left:3px;
+    margin-bottom:4px;
+    margin-top:2px;
+    border:none;
+    padding:4px 4px 4px 4px;
+    color:white;
+    font-size:12px;
+    padding-left:13px;
+    padding-right:13px;
+    border-radius:6px;
+    
+
+
+}
+

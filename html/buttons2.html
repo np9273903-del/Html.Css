@@ -1,0 +1,397 @@
+
+<style>
+    .sub-button{
+        background-color:rgb(201, 0, 0);
+        color:white;
+        padding-top:7px;
+        padding-right:7px;
+        padding-bottom:7px;
+        padding-left:7px;
+        margin-left:10px;
+        border:none;
+        border-radius:2px;
+        cursor:pointer;
+        margin-right:10px;
+        transition:opacity 0.15s;
+        vertical-align:top;
+    }
+    .sub-button:hover{
+        opacity:0.5;
+    }
+    .sub-button:active{
+        opacity:0.5;
+    }
+    .join{
+        background-color: white;
+        color:rgb(37, 126, 156);
+        border-color:rgb(42, 127, 201);
+        border-style: solid;
+        border-width:1px;
+         padding-top:6px;
+        padding-right:6px;
+        padding-bottom:6px;
+        padding-left:6px;
+        border-radius:2px;
+        margin-right:5px;
+        transition:color 0.15s,
+        background-color 0.15s;
+         vertical-align:top;
+    }
+    .join:hover{
+        background-color:rgb(121, 200, 237);
+        color:white;
+    }
+    .join:active{
+        opacity:0.5;
+    }
+   .tweet{
+      background-color: rgb(25, 135, 224);
+      color:white;
+      border-radius:20px;
+      border:none;
+       padding-top:7px;
+        padding-right:7px;
+        padding-bottom:7px;
+        padding-left:7px;
+      font-weight:bold;
+      font-size:14px;
+      cursor:pointer;
+      margin-left:8px;
+      transition:box-shadow 6s;
+       vertical-align:top;
+       margin-right:20px;
+   }
+.tweet:hover{
+   box-shadow:2px 2px 10px rgba(0,0,0,0.50);
+}
+
+   .uber{
+      padding-top:7px;
+        padding-right:7px;
+        padding-bottom:7px;
+        padding-left:7px;
+        border:none;
+    background-color:black;
+    color:white;
+    transition:opacity 0.15s;
+   }
+   .uber:hover{
+    opacity:0.5;
+   }
+   .amazon{
+    background-color:rgb(239, 239, 47);
+    height:40px;
+    width:150px;
+    border:none;
+    border-radius:20px;
+    font-size:15px;
+   }
+  .amazon:hover{
+    background-color:orange;
+  }
+   .Github{
+    margin-left:5px;
+    background-color:rgb(41, 163, 41);
+    color:white;
+    height:50px;
+    width:110px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+    transition:box-shadow 0.15;
+   }
+  .Github:hover{
+    box-shadow:0px 2px 3px rgba(0, 0, 0, 0.2);
+  }
+.bootstrap{
+    background-color:rgb(121,82,179);
+    color:white;
+    width:100px;
+    height:50px;
+    border:none;
+    border-radius:5px;
+    font-size:14px;
+    
+    font-size:14px;
+    transition:background-color 0.50s;
+}
+.bootstrap:hover{
+   background-color: rgb(106, 49, 160);
+}
+.download{
+    background-color:white;
+    height:50px;
+    width:100px;
+    font-weight:bold;
+    color:blueviolet;
+    border-color:blueviolet;
+    font-size:13px;
+    border-style: solid;
+     border-width:1px;
+     transition:background-color 0.15s;
+}
+.download:hover{
+   
+   background-color: rgb(117, 117, 117);
+   color:white;
+}
+
+.LINKIN{
+   background-color:rgb(13, 104, 195);
+   border:none;
+   height:50px;
+   width:250px;
+   color:white;
+   font-weight:bold;
+   font-size:18px;
+   border-radius:20px;
+   transition:background-color 1s;
+}
+.LINKIN:hover{
+   background-color: rgb(0, 0, 126);
+   color:white;
+}
+.save{
+     background-color:white;
+    height:50px;
+    width:100px;
+    font-weight:bold;
+    color:rgb(49, 99, 208);
+    border-color:rgb(34, 83, 209);
+    font-size:13px;
+    border-style: solid;
+     border-width:1px;
+     font-weight:bold;
+     font-size:20px;
+     border-radius:40px;
+}
+.save:hover{
+    background-color:rgb(225, 234, 255) ;
+}
+.h{
+    font-weight:bold;
+    font-size:30px;
+}
+.one{
+    font-weight:bold;
+    font-size:20px;
+    color:green;
+}
+.two{
+    font-size:20px;
+}
+.cart{
+ background-color:rgba(255, 216,20);
+ border:none;
+ font-size:16px;
+ height:30px;
+ width:150px;
+ border-radius:20px;
+}
+.cart:hover{
+    background-color: rgb(176, 148, 7);
+}
+.cart:active{
+    opacity:0.5;
+}
+.buy{
+ background-color:rgba(255, 164,28);
+ border:none;
+ font-size:16px;
+ height:30px;
+ width:150px;
+ border-radius:20px;
+}
+
+.buy:hover{
+    background-color:rgb(172, 106, 7);
+ 
+}
+.buy:active{
+    opacity:0.5;
+}
+.link:hover{
+    color: orange;
+}
+
+.priceUber{
+    background-color: black;
+    color:white;
+    height:50px;
+    width:120px;
+    border-radius:8px;
+    font-size:16px;
+    border:none;
+    
+}
+.uber1{
+    background-color:black;
+    height:75px;
+    font-size:30px;
+    border:none;
+    width:80px;
+    border-radius:20px;
+    margin:10px;
+    transition:background-color 10s;
+    }
+
+.uber:hover{
+    background-color:green;
+}
+    .dowloadtheUberapp{
+        border:1px solid rgb(0, 0, 0,0.2);
+        
+    }
+
+  .stretch {
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    transition: padding-top 1s,
+      padding-bottom 1s,
+      padding-left 1s,
+      padding-right 1s;
+  }
+
+  .stretch:hover {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+.shadow{
+     height:50px;
+    width:100px;
+    color:white;
+    background-color:green;
+    border:none;
+    
+}
+
+.k{
+    background-color: green;
+    color:white;
+    border:none;
+    font-size:18px;
+    padding-top:8px;
+    padding-bottom:8px;
+    cursor:pointer;
+    padding-left:15px;
+    padding-right:15px;
+    margin-left:10px;
+    margin-right:10px;
+    transition:padding-left 0.15s,
+                margin-left 0.15s,
+                padding-right 0.15s,
+                margin-right 0.15s;
+}
+.k:hover{
+    padding-left:25px;
+    padding-right:25px;
+    margin-left:0px;
+    margin-right:0px;
+}
+.backbutton{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.nextbutton{
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:10px; 
+}
+.search{
+    margin:10px;
+}
+
+.dclick{
+   background-color:green;
+   color:white;
+   border:none;
+   padding-top:10px;
+   padding-bottom:10px;
+   padding-right:10px;
+   padding-left:10px;
+   box-shadow:3px 3px 5px rgba(0,0,0,0.5);
+   transition:padding-right 0.15s,padding-buttom 0.15s,
+              padding-top   0.15s,padding-left  0.15s;
+}
+.dclick:active{
+     padding-right:12px;
+     padding-bottom:13px;
+     padding-top:9px;
+     padding-left:9px;
+     box-shadow:none;
+}
+</style>
+
+<button class="sub-button">SUBSCRIBE</button>
+
+<button class="join">JOIN</button>
+
+
+<button class="tweet">Tweet</button>
+
+
+<button class="uber">Request now</button>
+<br></br>
+<button class="amazon">Add to Cart</button>
+
+<br></br>
+<button class="Github">Sign up</button>
+
+<br></br>
+
+<button class="bootstrap">Get Started</button>
+<button class="download">Download</button>
+
+
+<br></br>
+
+<button class="LINKIN">Apply on company website</button>   <button class="Save">Save</button>
+<br></br>
+<a class="link" href="https://www.amazon.com/">Back to Amazon</a>
+<p class="h">Nike Black Running Shoes</p>
+<p class="one">$39-in stock</p>
+<p class="two">Free delivery tommorrow</p>
+
+<button class="cart">Add to Cart</button>
+
+<button class="buy">Buy now</button>
+
+<button class="priceUber">See prices</button>
+<br></br>
+
+<div class="dowloadtheUberapp">
+
+<button class="uber1">Uber</button> <p>Dowload the Uber app</p>
+
+</div>
+<br></br>
+<button class="stretch">stretch</button>
+<br></br>
+<button class="shadow">Shadow</button>
+
+<br></br>
+
+<button class="k">One</button>
+<button class="k">Two</button>
+<button class="k">Three</button>
+
+<button class="backbutton">Back</button>
+<a class="search" href="">1</a>
+<a class="search" href="">2</a>
+<a class="search" href="">3</a>
+<a class="search" href="">4</a>
+<a class="search" href="">5</a>
+<button class="nextbutton">Next</button>
+
+<button class="dclick">shadow</button>
