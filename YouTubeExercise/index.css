@@ -1,0 +1,81 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family:arial;
+    vertical-align:top;
+}
+
+.image1{
+    width:300px;
+    margin-bottom:0px;
+    margin-top:0px;
+   
+
+
+}
+
+.circleimage{
+    width:40px;
+    border-radius:20px;
+    margin-top:0px;
+    margin-top:8px;
+    
+
+}
+.sundar1{
+   display:inline-block;
+}
+.sundar{
+    display:inline-block;
+    margin-right:20px;
+    margin-top:50px;
+
+}
+
+.text{
+    vertical-align:center;
+    margin-left:50px;
+    margin-top:-40px;
+    width:250px;
+    font-size:14px;
+    font-weight:bold;
+    
+}
+
+.marques{
+   margin-left:50px;
+   margin-top:-20px;
+   color:rgb(124, 117, 117);
+   font-size:13px;
+
+
+
+}
+
+
+.million{
+ margin-left:50px;
+   margin-top:0px;
+   color:rgb(117, 117, 117);
+   font-size:13px;
+   
+       }
+
+.find{
+    display:inline-block;
+   margin-left:463px;
+   margin-top:-33px;
+   background-color: silver;
+   padding-left:10px;
+   background:rgb(235, 233, 233);
+   padding-top:5px;
+   padding-right:19px;
+   padding-bottom:2.0px;
+   vertical-align:center;
+   text-align:center;
+   
+   border:1px solid silver;
+
+
+
+}  
