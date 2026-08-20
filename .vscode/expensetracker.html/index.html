@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Daily Tracker · Expense</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    /* card – looks like a mobile app */
+    .app-card {
+      max-width: 480px;
+      width: 100%;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 24px 20px 32px;
+      transition: all 0.2s ease;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0b1b32;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    h1 i {
+      color: #3a7bd5;
+      font-size: 28px;
+    }
+
+    .subhead {
+      color: #5e6f8d;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      border-left: 4px solid #3a7bd5;
+      padding-left: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .subhead span {
+      background: #eef3fc;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 13px;
+      color: #1f3a6b;
+    }
+
+    /* today summary */
+    .today-box {
+      background: linear-gradient(135deg, #eef6ff, #ffffff);
+      border-radius: 24px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      border: 1px solid #dde7f5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .today-label {
+      font-weight: 600;
+      color: #1f3a6b;
+      font-size: 15px;
+    }
+
+    .today-amount {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0b1b32;
+      letter-spacing: -0.5px;
+    }
+
+    .today-amount small {
+      font-size: 16px;
+      font-weight: 500;
+      color: #5e6f8d;
+      margin-left: 4px;
+    }
+
+    /* input form */
+    .input-section {
+      background: #f8faff;
+      padding: 18px 16px;
+      border-radius: 28px;
+      margin-bottom: 28px;
+      border: 1px solid #e2ebf6;
+      box-shadow: 0 2px 8px rgba(0, 20, 40, 0.02);
+    }
+
+    .input-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .input-group {
+      flex: 1 0 140px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 40px;
+      padding: 0 16px;
+      border: 1px solid #d4e0f0;
+      transition: 0.2s;
+    }
+
+    .input-group:focus-within {
+      border-color: #3a7bd5;
+      box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.15);
+    }
+
+    .input-group i {
+      color: #7a8ca8;
+      font-size: 15px;
+      margin-right: 8px;
+    }
+
+    .input-group input {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 14px 0;
+      font-size: 15px;
+      width: 100%;
+      font-weight: 500;
+      color: #0b1b32;
+    }
+
+    .input-group input::placeholder {
+      color: #a6b8d0;
+      font-weight: 400;
+    }
+
+    .input-group.amount-input i {
+      color: #2a6bb0;
+    }
+
+    .add-btn {
+      background: #3a7bd5;
+      border: none;
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 40px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 8px 18px rgba(58, 123, 213, 0.25);
+      flex-shrink: 0;
+    }
+
+    .add-btn i {
+      font-size: 24px;
+    }
+
+    .add-btn:active {
+      transform: scale(0.92);
+      box-shadow: 0 4px 10px rgba(58, 123, 213, 0.3);
+    }
+
+    /* expense list header */
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .list-header h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f3a6b;
+    }
+
+    .list-header .clear-btn {
+      background: transparent;
+      border: none;
+      color: #b0c4dd;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 40px;
+      transition: 0.15s;
+    }
+
+    .list-header .clear-btn:active {
+      background: #f0f4fe;
+      color: #3a7bd5;
+    }
+
+    /* expense items */
+    .expense-list {
+      list-style: none;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 2px;
+      margin-bottom: 8px;
+    }
+
+    .expense-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .expense-list::-webkit-scrollbar-thumb {
+      background: #cdddec;
+      border-radius: 20px;
+    }
+
+    .expense-item {
+      background: white;
+      border-radius: 20px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #eaf1fc;
+      transition: 0.15s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .expense-item:active {
+      background: #f6faff;
+      border-color: #c5d9f0;
+    }
+
+    .expense-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .expense-name {
+      font-weight: 600;
+      color: #0b1b32;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .expense-name i {
+      color: #3a7bd5;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .expense-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: #6a7f9e;
+    }
+
+    .expense-meta i {
+      font-size: 12px;
+      margin-right: 4px;
+      color: #8ba0be;
+    }
+
+    .expense-amount {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a324f;
+      background: #f0f7ff;
+      padding: 4px 14px;
+      border-radius: 40px;
+      letter-spacing: -0.2px;
+    }
+
+    .delete-item {
+      background: transparent;
+      border: none;
+      color: #b8cbdf;
+      font-size: 18px;
+      padding: 8px 8px 8px 12px;
+      cursor: pointer;
+      transition: 0.1s;
+      border-radius: 40px;
+    }
+
+    .delete-item:active {
+      color: #d14c4c;
+      background: #ffeeee;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #a6b8d0;
+      font-weight: 500;
+      padding: 36px 0 20px;
+      font-size: 15px;
+    }
+
+    .empty-message i {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: #b0c4dd;
+      text-align: center;
+      margin-top: 18px;
+      border-top: 1px solid #ecf3fc;
+      padding-top: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note i {
+      margin: 0 4px;
+    }
+
+    /* responsive */
+    @media (max-width: 420px) {
+      .input-group {
+        flex: 1 0 100%;
+      }
+      .add-btn {
+        width: 100%;
+        height: 48px;
+        margin-top: 6px;
+      }
+      .today-amount {
+        font-size: 24px;
+      }
+      .app-card {
+        padding: 18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-card" id="app">
+
+  <header>
+    <h1><i class="fas fa-wallet"></i> DailySpend</h1>
+    <div class="subhead">
+      <span><i class="far fa-calendar-alt" style="margin-right: 6px;"></i> today</span>
+      <span id="currentDateDisplay"></span>
+    </div>
+  </header>
+
+  <!-- today's total -->
+  <div class="today-box">
+    <span class="today-label"><i class="fas fa-coins" style="margin-right: 8px; color: #3a7bd5;"></i>Today's total</span>
+    <span class="today-amount" id="todayTotal">0 <small>₹</small></span>
+  </div>
+
+  <!-- add expense form -->
+  <div class="input-section">
+    <div class="input-row">
+      <div class="input-group">
+        <i class="fas fa-tag"></i>
+        <input type="text" id="expenseNameInput" placeholder="What? (e.g. Coffee)" maxlength="30" autocomplete="off">
+      </div>
+      <div class="input-group amount-input">
+        <i class="fas fa-rupee-sign"></i>
+        <input type="number" id="expenseAmountInput" placeholder="0" min="0" step="0.5" inputmode="decimal">
+      </div>
+      <button class="add-btn" id="addExpenseBtn"><i class="fas fa-plus"></i></button>
+    </div>
+  </div>
+
+  <!-- list header -->
+  <div class="list-header">
+    <h3><i class="far fa-list-alt" style="margin-right: 8px; color: #3a7bd5;"></i>Today's entries</h3>
+    <button class="clear-btn" id="clearAllBtn"><i class="fas fa-trash-alt"></i> Clear</button>
+  </div>
+
+  <!-- expense list -->
+  <ul class="expense-list" id="expenseList">
+    <!-- dynamic items will be injected -->
+    <li class="empty-message">
+      <i class="fas fa-receipt"></i>
+      No expenses yet<br><span style="font-size:13px;">add your first spend</span>
+    </li>
+  </ul>
+
+  <div class="footer-note">
+    <i class="fas fa-save"></i> auto-saved locally · <i class="far fa-clock"></i> daily reset
+  </div>
+</div>
+
+<script>
+  (function() {
+    "use strict";
+
+    // ----- DOM refs -----
+    const expenseListEl = document.getElementById('expenseList');
+    const todayTotalEl = document.getElementById('todayTotal');
+    const nameInput = document.getElementById('expenseNameInput');
+    const amountInput = document.getElementById('expenseAmountInput');
+    const addBtn = document.getElementById('addExpenseBtn');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    const dateDisplay = document.getElementById('currentDateDisplay');
+
+    // ----- helpers -----
+    const STORAGE_KEY = 'dailyExpenses';
+    const TODAY_KEY = 'dailyExpenseDate';
+
+    // get today's date string (YYYY-MM-DD)
+    function getTodayStr() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    // format date for display
+    function formatDateDisplay(dateStr) {
+      if (!dateStr) return '';
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return dateStr;
+      const d = new Date(parts[0], parts[1]-1, parts[2]);
+      return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+    }
+
+    // load from localStorage
+    function loadExpenses() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        return JSON.parse(raw);
+      } catch (e) {
+        return [];
+      }
+    }
+
+    // save to localStorage
+    function saveExpenses(expenses) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
+    }
+
+    // get today's expense list (filtered)
+    function getTodayExpenses(expenses) {
+      const today = getTodayStr();
+      return expenses.filter(item => item.date === today);
+    }
+
+    // compute today's total
+    function calcTodayTotal(expenses) {
+      const today = getTodayStr();
+      return expenses
+        .filter(item => item.date === today)
+        .reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+    }
+
+    // render the list and total
+    function render() {
+      const allExpenses = loadExpenses();
+      const todayExpenses = getTodayExpenses(allExpenses);
+      const total = todayExpenses.reduce((sum, e) => sum + (Number(e.amount) || 0), 0);
+
+      // update total
+      todayTotalEl.innerHTML = `${total.toFixed(1)} <small>₹</small>`;
+
+      // clear list (preserve empty message)
+      expenseListEl.innerHTML = '';
+
+      if (todayExpenses.length === 0) {
+        // show empty state
+        const emptyLi = document.createElement('li');
+        emptyLi.className = 'empty-message';
+        emptyLi.innerHTML = `<i class="fas fa-receipt"></i>No expenses today<br><span style="font-size:13px;">add your first spend</span>`;
+        expenseListEl.appendChild(emptyLi);
+        return;
+      }
+
+      // sort by id (newest first) – we use index as id, but we can sort by insertion order (reverse)
+      // we'll show newest first (higher id = newer)
+      const sorted = [...todayExpenses].sort((a, b) => (b.id || 0) - (a.id || 0));
+
+      for (let exp of sorted) {
+        const li = document.createElement('li');
+        li.className = 'expense-item';
+        li.dataset.id = exp.id;
+
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'expense-info';
+
+        const nameSpan = document.createElement('div');
+        nameSpan.className = 'expense-name';
+        nameSpan.innerHTML = `<i class="fas fa-pen-fancy"></i> ${escapeHTML(exp.name) || 'Untitled'}`;
+
+        const metaSpan = document.createElement('div');
+        metaSpan.className = 'expense-meta';
+        // show time if available, else placeholder
+        const timeStr = exp.time ? exp.time : '—';
+        metaSpan.innerHTML = `<i class="far fa-clock"></i> ${timeStr}`;
+
+        infoDiv.appendChild(nameSpan);
+        infoDiv.appendChild(metaSpan);
+
+        const amountSpan = document.createElement('span');
+        amountSpan.className = 'expense-amount';
+        amountSpan.textContent = `₹${Number(exp.amount).toFixed(1)}`;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-item';
+        deleteBtn.innerHTML = '<i class="fas fa-times-circle"></i>';
+        deleteBtn.setAttribute('aria-label', 'delete expense');
+
+        // delete handler
+        deleteBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const id = Number(li.dataset.id);
+          deleteExpenseById(id);
+        });
+
+        li.appendChild(infoDiv);
+        li.appendChild(amountSpan);
+        li.appendChild(deleteBtn);
+
+        expenseListEl.appendChild(li);
+      }
+    }
+
+    // simple escape
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>"]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        if (m === '"') return '&quot;';
+        return m;
+      });
+    }
+
+    // delete expense by id (only from today)
+    function deleteExpenseById(id) {
+      let all = loadExpenses();
+      const today = getTodayStr();
+      // filter out the item with that id AND today
+      all = all.filter(item => !(item.id === id && item.date === today));
+      saveExpenses(all);
+      render();
+    }
+
+    // clear all today's expenses
+    function clearTodayExpenses() {
+      let all = loadExpenses();
+      const today = getTodayStr();
+      all = all.filter(item => item.date !== today);
+      saveExpenses(all);
+      render();
+    }
+
+    // add a new expense
+    function addExpense() {
+      const name = nameInput.value.trim();
+      const amount = parseFloat(amountInput.value);
+
+      if (!name) {
+        alert('Please tell what you spent on (name)');
+        nameInput.focus();
+        return;
+      }
+      if (isNaN(amount) || amount <= 0) {
+        alert('Enter a valid amount (greater than 0)');
+        amountInput.focus();
+        return;
+      }
+
+      const today = getTodayStr();
+      const all = loadExpenses();
+
+      // generate new id (max id + 1, or 1 if empty)
+      let maxId = 0;
+      if (all.length > 0) {
+        maxId = Math.max(...all.map(item => item.id || 0));
+      }
+      const newId = maxId + 1;
+
+      // current time
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+      const newExpense = {
+        id: newId,
+        name: name,
+        amount: amount,
+        date: today,
+        time: timeStr,
+        timestamp: now.getTime()
+      };
+
+      all.push(newExpense);
+      saveExpenses(all);
+
+      // clear inputs
+      nameInput.value = '';
+      amountInput.value = '';
+      nameInput.focus();
+
+      render();
+    }
+
+    // ---- reset / check day change ----
+    function checkDayChangeAndReset() {
+      const today = getTodayStr();
+      const storedDate = localStorage.getItem(TODAY_KEY);
+      if (storedDate !== today) {
+        // day changed: we keep all data but we just render today's items.
+        // (we do not delete old data – we keep history)
+        localStorage.setItem(TODAY_KEY, today);
+        // re-render to show today
+        render();
+      } else {
+        render();
+      }
+    }
+
+    // ---- init ----
+    function init() {
+      // set current date display
+      dateDisplay.textContent = formatDateDisplay(getTodayStr());
+
+      // check day change (set if not exists)
+      const today = getTodayStr();
+      const storedDate = localStorage.getItem(TODAY_KEY);
+      if (!storedDate) {
+        localStorage.setItem(TODAY_KEY, today);
+      }
+
+      // render
+      checkDayChangeAndReset();
+
+      // event listeners
+      addBtn.addEventListener('click', addExpense);
+
+      // enter key on inputs
+      nameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          amountInput.focus();
+        }
+      });
+      amountInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addExpense();
+        }
+      });
+
+      clearAllBtn.addEventListener('click', function() {
+        if (confirm('Delete all expenses for today?')) {
+          clearTodayExpenses();
+        }
+      });
+
+      // (optional) click on empty list doesn't matter
+    }
+
+    // run
+    init();
+  })();
+</script>
+</body>
+</html>

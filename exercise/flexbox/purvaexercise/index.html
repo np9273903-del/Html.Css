@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .uber-box{
+            width:500px;
+            height:500px;
+            background-color:black;
+            border-radius:20px;
+           margin-left:600px;
+           margin-top:200px;
+           box-shadow:3px 3px 20px black;
+        }
+
+        .arrow{
+            padding-left:10px;
+
+            height:40px;
+            width:28px;
+            color:white;
+            padding-top:6px;
+
+        }
+        .plan{
+            color:white;
+            font-size:23px;
+            font-family:arial;
+            font-weight:bold;
+            margin-left:100px;
+            padding:0px;
+            margin-top:10px;
+
+
+        }
+        .header{
+            display:flex;
+            flex-direction:row;
+        
+        }
+        #options{
+            margin-top:10px;
+            padding:10px 10px 10px 10px;
+            border-radius:10px;
+            font-family:arial;
+            font-size:15px;
+            background-color: rgb(71, 69, 69);
+            color:white;
+             border:none;
+           margin-left:30px;  
+           padding-left:40px;
+           padding-right:40px;
+
+ 
+        }
+        .clock{
+            height:50px;
+            width:50px;
+            color:white;
+
+        }
+        .pick{
+            margin-top:30px;
+            margin-left:30px;
+            border:4px solid white;
+            width:300px;
+            padding:8px 8px 8px 8px;
+            border-radius:10px;
+
+
+
+
+
+        }
+        .search1{
+           margin:0px;
+           padding:0px;
+           padding-top:10px;
+           padding-left:10px;
+           padding-bottom:10px;
+           background-color: black;
+           border:none;
+
+
+                       
+        }
+        .search1::placeholder{
+            color:rgb(249, 246, 246);
+            font-size:17px;
+            
+        }
+        
+        .search2{
+           margin:0px;
+           padding:0px;
+            padding-top:10px;
+           padding-left:10px;
+           padding-bottom:10px;
+           background-color: black;
+           border:none;
+           
+        }
+        .search2::placeholder{
+            color:white;
+            font-size:18px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="uber-box"> 
+        <div class="header">
+   <svg class="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+</svg>
+     <p class="plan">Plan your ride</p>
+        </div>
+        
+
+        <select id="options" name="options">
+            
+<option value="option1">Pickup now</option>
+<option value="option2">Option 2</option>
+<option value="option3">Option 3</option>
+</select>
+     <select id="options" name="options">
+<option value="option1">For me</option>
+<option value="option2">Option 2</option>
+<option value="option3">Option 3</option>
+</select>
+     <div class="pick">
+<input class="search1" type="text" placeholder="Blue Hills">
+<br></br>
+<input class="search2" type="search" placeholder="Where to?">
+     </div>
+    </div>
+
+</body>
+</html>

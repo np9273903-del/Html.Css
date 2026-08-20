@@ -1,0 +1,129 @@
+.div{
+   font-family:arial;
+  
+}
+.container{
+    border:1px solid rgba(0,0,5);
+    border-radius:6px;
+    width:300px;
+    margin-bottom:100px;
+
+}
+
+.flexbox{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 12px 12px 12px;
+
+}
+
+.notifications{
+    background-color: rgb(77, 91, 217);
+    color:white;
+    padding-right:10px;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:14px;
+}
+
+.cat-container{
+    display:flex;
+    flex-direction:row;
+  
+    width:350px;
+
+}
+
+.cat-image{
+    height:60px;
+    width:70px;
+    
+
+}
+.cat-text{
+    width:50px;
+    font-weight:bold;
+    margin-top:-5px;
+
+}
+.cat-box{
+    width:80px;
+    margin-top:-10px;
+    margin-left:5px;
+    margin-right:40px;
+
+}
+
+.follow{
+    margin-top:10px;
+    background-color: rgb(96, 96, 239);
+    padding-top: -2px;
+    padding-right:20px;
+    padding-left:20px;
+    margin-bottom:15px;
+    border:none;
+    color:white;
+    font-weight:bold;
+    border-radius:3px;
+
+
+ 
+}
+.cat{
+    font-family:arial;
+    font-size:12px;
+    color:rgb(151, 144, 144);
+    font-weight:bold;
+
+}
+
+.taskbar{
+    background-color: rgb(157, 54, 186);
+    margin:50px;
+    color:white;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    height:70px;
+}
+
+.search-bar{
+    margin-top:14px;
+ 
+
+}
+.search{
+   padding-right:300px;
+   padding-left:20px;
+   padding-top:10px;
+   padding-bottom:10px;
+   border-radius:20px;
+   border:none;
+
+
+
+}
+
+.home{
+    margin-left:10px;
+    margin-top:20px;
+    font-weight:bold;
+    font-family:arial;
+    margin-top:25px;
+
+}
+
+.dowload{
+    margin-top:15px;
+    margin-right:19px;
+    padding:7px 7px 7px 7px;
+    background-color:  rgb(157, 54, 186);
+    color:white;
+    border:none;
+    border:1px solid white;
+    font-weight:bold;
+    
+}he

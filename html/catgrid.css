@@ -1,0 +1,18 @@
+.body{
+    margin:0px;
+    padding:0px;
+}
+
+.cat{
+    height:200px;
+    width:200px;
+}
+
+.cat-image{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    row-gap:50px;
+    column-gap:50px;
+
+
+}
